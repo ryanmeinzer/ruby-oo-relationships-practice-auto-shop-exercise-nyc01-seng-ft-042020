@@ -26,8 +26,14 @@ class CarOwner
 
 # CarOwner.average_number_of_cars Get the average amount of cars owned for all owners
   def self.average_number_of_cars
-    totals = @@all.map { |owner| owner.cars.count }
-    totals.sum / totals.length
+    # total_owners = self.all.count
+    # total_cars = 0
+    # self.all.each { |owner| total_cars = total_cars + owner.cars.count }
+    # totals.sum / totals.length
+    # all cars with owners
+    # total_cars = self.all.select { |car| car.owner != nil }.count
+    # total_cars / total_owners
+    Car.all.count / CarOwner.all.count
   end
 
 end
