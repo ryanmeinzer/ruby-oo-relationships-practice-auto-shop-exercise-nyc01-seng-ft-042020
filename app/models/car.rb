@@ -4,7 +4,6 @@ class Car
   attr_accessor :car_owner, :mechanic
 
   @@all = []
-  @@classifications = []
 
   def initialize(make, model, classification, car_owner, mechanic)
     @make = make
@@ -12,7 +11,6 @@ class Car
     @classification = classification
     @car_owner = car_owner
     @mechanic = mechanic
-    @@classifications << @classification
     Car.all << self
   end
 
@@ -23,7 +21,7 @@ class Car
 
 # Car.classifications Get a list of all car classifications
   def self.classifications
-    @@classifications
+    self.all.map { |car| car.classification }
   end
 
 # Car.find_mechanics(classification) Get a list of mechanics that have an expertise that matches the passed in car classification
